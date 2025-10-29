@@ -259,6 +259,11 @@ async function loadExternalSvgAndInitInteractivity() {
 				'Roboto Condensed'
 			);
 
+			svgText = svgText.replace(
+				/font-size:20px/g,
+				'font-size:16px'
+			);
+
             // Inject the SVG text content into the container
             // WARNING: Injecting raw SVG text can strip namespaces if done directly on an 
             // <svg> element, but injecting into a <div> (svg-loading-container) 
