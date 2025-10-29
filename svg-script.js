@@ -180,9 +180,9 @@ function extractIDsFromGroup() {
 }
 
 function fixTextElements() {
-	if (!interactiveSvg) return;
-
-	
+	if (!interactiveSvg){
+		 return;
+	}
 	const textGroup = interactiveSvg.getElementById(STATEROOM_TEXT_ID);
 	if (!textGroup) {
 		console.error(`Text group with ID '${STATEROOM_TEXT_ID}' not found.`);
@@ -193,6 +193,7 @@ function fixTextElements() {
 		if (textElement) {
 			let text = textElement.textContent.trim();
 			textElement.textContent = text.replaceAll(/[a-zA-Z]/g, ''); // Remove Letters
+			textElement.style.pointerEvents = 'none'; // Prevent text from blocking clicks
 		}
 	}
 }
