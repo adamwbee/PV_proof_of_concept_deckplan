@@ -7,6 +7,7 @@ const colorFromCat = {
 	'D': 0xc6d5ed,
 	'J': 0xd4e7f7,
 	'K': 0xd3c2e2,
+	'DD': 0xa8c0e6,
 };
 
 
@@ -114,11 +115,11 @@ function extractIDsFromGroup() {
             
             if (firstUnderscoreIndex !== -1) {
                 // Get the substring starting *after* the first underscore
-                const trimmedValue = rawId.substring(1, firstUnderscoreIndex);
+
+				const trimmedValue = rawId.substring(0, firstUnderscoreIndex).replaceAll(/[A-Z]/g, '');
                 extractedIDs.push(trimmedValue);
                 console.log(`- Extracted ID from ${rawId}: ${trimmedValue}`);
-
-				let cat = rawId.substring(0,1);
+				let cat = rawId.match(/^[A-Z]+/)[0];
 				let color = colorFromCat[cat];
 				let shape = child.querySelector('rect') || child.querySelector('polygon');
 				if (shape) {
@@ -247,6 +248,7 @@ async function loadExternalSvgAndInitInteractivity() {
 
             let svgText = await response.text();
 
+			// Replace font-family references to use Roboto Condensed
 
 			svgText = svgText.replace(
 				/AcuminProCond-Semibold/g, 

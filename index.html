@@ -55,12 +55,12 @@
         </button>
 
         <!-- Result Card (Tied to clickedOutput in script.js) -->
-        <div id="result-card" class="bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-indigo-500">
-            <h2 class="text-xl font-semibold text-gray-800 mb-2">Status / Clicked Element:</h2>
-            <p id="clicked-output" class="text-lg font-mono text-gray-700 transition duration-300">
-                — Script initializing and attempting to load SVG... —
-            </p>
-        </div>
+		<div id="result-card" class="bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-indigo-500 sticky top-4 z-50">
+			<h2 class="text-xl font-semibold text-gray-800 mb-2">Status / Clicked Element:</h2>
+			<p id="clicked-output" class="text-lg font-mono text-gray-700 transition duration-300">
+			— Script initializing and attempting to load SVG... —
+			</p>
+		</div>
 
         <!-- NEW SVG LOADING CONTAINER: The content of HAL_ED_deckplan_D1-MAIN_V1.svg will be injected here by the JavaScript -->
         <div id="svg-loading-container" class="p-4 bg-white rounded-xl shadow-2xl min-h-[200px] flex items-center justify-center">
