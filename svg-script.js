@@ -5,7 +5,8 @@
 
 const colorFromCat = {
 	'D': 0xc6d5ed,
-	'J': 0xd4e7f7
+	'J': 0xd4e7f7,
+	'K': 0xd3c2e2,
 };
 
 
@@ -77,7 +78,7 @@ function find_category(stateroom_id) {
 function extractIDsFromGroup() {
     console.log("--- Starting SVG ID Extraction ---");
 
-	debugger
+	
     if (!interactiveSvg) {
         console.error("SVG is not loaded yet.");
         clickedOutput.textContent = "ERROR: SVG content not loaded.";
@@ -128,7 +129,7 @@ function extractIDsFromGroup() {
 					}
 					
 				}
-				debugger
+				
 				// add text label to the stateroom
 				if (child) {	
 					// const labelText = trimmedValue;
@@ -181,7 +182,7 @@ function extractIDsFromGroup() {
 function fixTextElements() {
 	if (!interactiveSvg) return;
 
-	debugger
+	
 	const textGroup = interactiveSvg.getElementById(STATEROOM_TEXT_ID);
 	if (!textGroup) {
 		console.error(`Text group with ID '${STATEROOM_TEXT_ID}' not found.`);

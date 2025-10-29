@@ -58,7 +58,7 @@ function handleSvgClick(event) {
 function extractIDsFromGroup() {
     console.log("--- Starting SVG ID Extraction ---");
 
-	debugger
+	
     const targetGroupId = 'MA_stateroom_outlines';
     const targetGroup = document.getElementById(targetGroupId);
     
@@ -82,7 +82,7 @@ function extractIDsFromGroup() {
             // skipping the underscore itself (+1).
             const firstUnderscoreIndex = rawId.indexOf('_');
             
-			debugger
+			
             if (firstUnderscoreIndex !== -1) {
                 // Get the substring starting *after* the first underscore
                 const trimmedValue = rawId.substring(0, firstUnderscoreIndex);
