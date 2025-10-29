@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG ID Extraction Demo</title>
+    <!-- Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for SVG elements for visual clarity */
+        svg {
+            display: block;
+            background-color: #f7f9fb;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        /* Style for stateroom shapes */
+        .stateroom-shape {
+            fill: #bae6fd; /* Light blue */
+            stroke: #38bdf8; /* Blue border */
+            stroke-width: 1;
+            transition: fill 0.2s, stroke 0.2s;
+            cursor: pointer;
+        }
+        .stateroom-shape:hover {
+            fill: #fcd34d; /* Amber on hover */
+            stroke: #f59e0b;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-8 flex flex-col items-center justify-start font-sans">
+    <div class="w-full max-w-4xl">
+        <!-- Header and Instructions -->
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-2">SVG Group ID Extraction</h1>
+        <p class="text-gray-600 mb-6">
+            Click the button below to execute the script. It will find the group with ID 
+            <code class="bg-gray-200 p-1 rounded">MA_stateroom_outlines</code>, extract the unique number 
+            (the part after the underscore) from each shape's ID, and log the final array to the console.
+        </p>
+
+        <!-- Action Button (Tied to extractIDsFromGroup in script.js) -->
+        <button id="extract-button" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-xl transition duration-300 transform hover:scale-[1.02] mb-8">
+            Run ID Extraction Script
+        </button>
+
+        <!-- Result Card (Tied to clickedOutput in script.js) -->
+        <div id="result-card" class="bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-indigo-500">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2">Status / Clicked Element:</h2>
+            <p id="clicked-output" class="text-lg font-mono text-gray-700 transition duration-300">
+                — Ready to run or click —
+            </p>
+        </div>
+
+        <!-- SVG Map Structure (Tied to interactive-svg in script.js) -->
+        <div class="p-4 bg-white rounded-xl shadow-2xl">
+			<!-- add svg here -->
+			<svg src="HAL_ED_deckplan_D1-MAIN_V1.svg"></svg>
+        </div>
+    </div>
+
+    <!-- Links the external JavaScript file to the HTML document -->
+    <script src="svg-script.js"></script>
+</body>
+</html>
