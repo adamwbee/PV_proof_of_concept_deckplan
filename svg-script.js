@@ -86,13 +86,6 @@ function extractIDsFromGroup() {
         return;
     }
 
-    // Use getElementById on the loaded SVG element itself
-	// const textGroup = interactiveSvg.getElementById(STATEROOM_TEXT_ID);
-	// textGroup.style.display = 'none';
-	const symbolGroup = interactiveSvg.getElementById(STATEROOM_SYMBOL_ID);
-	symbolGroup.style.display = 'none';
-
-
     const targetGroup = interactiveSvg.getElementById(STATEROOM_OUTLINE_ID);
     
     if (!targetGroup) {
@@ -128,35 +121,8 @@ function extractIDsFromGroup() {
 					} else {
 						shape.style.fill = '#FFFFFF00';
 					}
-					
 				}
-				
-				// add text label to the stateroom
 				if (child) {	
-					// const labelText = trimmedValue;
-					// const ns = "http://www.w3.org/2000/svg";
-					// try {
-					// 	const textEl = document.createElementNS(ns, 'text');
-					// 	textEl.classList.add('stateroom-label');
-					// 	textEl.textContent = labelText;
-					// 	textEl.setAttribute('fill', '#000');
-					// 	textEl.setAttribute('font-size', '10');
-					// 	textEl.setAttribute('text-anchor', 'middle');
-					// 	textEl.setAttribute('dominant-baseline', 'central');
-					// 	// don't let the label intercept pointer events so group clicks still work
-					// 	textEl.style.pointerEvents = 'none';
-
-					// 	// position label centered on the rect
-					// 	const bbox = rect.getBBox();
-					// 	const cx = bbox.x + bbox.width / 2;
-					// 	const cy = bbox.y + bbox.height / 2;
-					// 	textEl.setAttribute('x', cx);
-					// 	textEl.setAttribute('y', cy);
-
-					// 	child.appendChild(textEl);
-					// } catch (err) {
-					// 	console.warn('Failed to add label for', trimmedValue, err);
-					// }
 					child.addEventListener('click', (e) => {
 						console.log(`Clicked on stateroom ${trimmedValue} in category ${cat}`);
 						clickedOutput.textContent = `Clicked on Stateroom ${trimmedValue} (Category: ${cat})`;
@@ -178,6 +144,24 @@ function extractIDsFromGroup() {
     clickedOutput.textContent = `SUCCESS: Extracted ${extractedIDs.length} Stateroom IDs. (Check Console)`;
 
 	fixTextElements();
+	disableSymbolClicks();
+}
+
+function disableSymbolClicks() {
+	if (!interactiveSvg){
+		 return;
+	}
+	const symbolGroup = interactiveSvg.getElementById(STATEROOM_SYMBOL_ID);
+	if (!symbolGroup) {
+		console.error(`Symbol group with ID '${STATEROOM_SYMBOL_ID}' not found.`);
+		return;
+	}
+	
+	for (let symbolElement of symbolGroup.children) {
+		if (symbolElement) {
+			symbolElement.style.pointerEvents = 'none'; // Prevent symbol from blocking clicks
+		}
+	}
 }
 
 function fixTextElements() {
