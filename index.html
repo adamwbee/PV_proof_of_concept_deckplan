@@ -49,17 +49,19 @@
             The script now attempts to **load the SVG from the file <code class="bg-gray-200 p-1 rounded">HAL_ED_deckplan_D1-MAIN_V1.svg</code>**. Once loaded, it will use the extracted structure to allow clicking and extraction.
         </p>
 
-        <!-- Action Button (Tied to extractIDsFromGroup in script.js) -->
-        <button id="extract-button" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-xl transition duration-300 transform hover:scale-[1.02] mb-8">
-            Run ID Extraction Script
-        </button>
+		<div class="sticky top-4 z-50">
+			<!-- Action Button (Tied to extractIDsFromGroup in script.js) -->
+			<button id="extract-button" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-xl transition duration-300 transform hover:scale-[1.02] mb-8">
+				Run ID Extraction Script
+			</button>
 
-        <!-- Result Card (Tied to clickedOutput in script.js) -->
-		<div id="result-card" class="bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-indigo-500 sticky top-4 z-50">
-			<h2 class="text-xl font-semibold text-gray-800 mb-2">Status / Clicked Element:</h2>
-			<p id="clicked-output" class="text-lg font-mono text-gray-700 transition duration-300">
-			— Script initializing and attempting to load SVG... —
-			</p>
+			<!-- Result Card (Tied to clickedOutput in script.js) -->
+			<div id="result-card" class="bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-indigo-500 sticky">
+				<h2 class="text-xl font-semibold text-gray-800 mb-2">Status / Clicked Element:</h2>
+				<p id="clicked-output" class="text-lg font-mono text-gray-700 transition duration-300">
+				— Script initializing and attempting to load SVG... —
+				</p>
+			</div>
 		</div>
 
         <!-- NEW SVG LOADING CONTAINER: The content of HAL_ED_deckplan_D1-MAIN_V1.svg will be injected here by the JavaScript -->
